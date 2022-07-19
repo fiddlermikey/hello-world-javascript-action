@@ -8868,6 +8868,10 @@ try {
   const nameToGreet = core.getInput('who-to-greet');
   const rName = github.context.repo.repo;
   const bName = github.context.ref;
+  const pulls = github.pulls.list({
+    owner: github.context.owner,
+    repo: github.context.repo.owner
+  });
   console.log(`The repo name: ${rName}`);
   console.log(`The repo ref name: ${bName}`);
   console.log(`Hello ${nameToGreet}!`);
@@ -8886,7 +8890,7 @@ try {
   //const lastPull = pulls.data[0].id;
   //const lastPullTitle = pulls.data[0].title;
   //const lastPullNum = pulls.data[0].number;
-
+  
   //const pullCommits = github.context.pulls.listCommits({
   //  owner: repoOwner,
   //  repo: repoName,
