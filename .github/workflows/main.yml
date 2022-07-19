@@ -7,9 +7,9 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: fiddlermikey/hello-world-javascript-action@main
+        uses: fiddlermikey/hello-world-javascript-action@pulls-commits
         with:
-          who-to-greet: 'Mikey the Great'
+          who-to-greet: 'Mikey'
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
