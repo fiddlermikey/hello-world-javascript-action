@@ -10,7 +10,7 @@ jobs:
         uses: fiddlermikey/hello-world-javascript-action@pulls-commits
         with:
           who-to-greet: 'Mikey'
-          token: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
