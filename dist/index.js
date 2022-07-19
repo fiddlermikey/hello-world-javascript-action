@@ -8868,7 +8868,7 @@ const repoOwner = 'fiddlermikey'
 async function run() {
   console.log("Begin")
   try {
-    const octokit = github.getOctokit(secrets.GITHUB_TOKEN);
+    const octokit = github.getOctokit(GITHUB_TOKEN);
     var commitMessages = ""
   } catch (err) {
     core.setFailed(err.message);
