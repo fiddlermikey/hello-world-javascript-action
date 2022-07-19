@@ -8875,6 +8875,27 @@ try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);
+  const pulls = github.context.pulls.list({
+    owner: repoOwner,
+    repo: repoName,
+    state: 'closed'
+  });
+  const lastPull = pulls.data[0].id;
+  const lastPullTitle = pulls.data[0].title;
+  const lastPullNum = pulls.data[0].number;
+
+  const pullCommits = github.context.pulls.listCommits({
+    owner: repoOwner,
+    repo: repoName,
+    pull_number: lastPullNum
+  })
+
+  const latestRelease = github.context.repos.getLatestRelease({
+    owner: repoOwner,
+    repo: repoName
+
+  })
+  
 } catch (error) {
   core.setFailed(error.message);
 }
