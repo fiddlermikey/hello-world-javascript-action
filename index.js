@@ -10,6 +10,8 @@ try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);
+  const rName = await github.context.repo.owner;
+  console.log(`The repo name: ${rName}`);
 } catch (error) {
   core.setFailed(error.message);
 }
