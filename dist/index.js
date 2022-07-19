@@ -8869,6 +8869,7 @@ try {
   const rName = github.context.repo.repo;
   const bName = github.context.repo.ref
   console.log(`The repo name: ${rName}`);
+  console.log(`The repo ref name: ${bName}`);
   console.log(`Hello ${nameToGreet}!`);
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
