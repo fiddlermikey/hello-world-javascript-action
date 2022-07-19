@@ -5,7 +5,7 @@ try {
   // `who-to-greet` input defined in action metadata file
   const nameToGreet = core.getInput('who-to-greet');
   const rName = github.context.repo.repo;
-  const bName = github.context.repo.ref
+  const bName = github.context.ref;
   console.log(`The repo name: ${rName}`);
   console.log(`The repo ref name: ${bName}`);
   console.log(`Hello ${nameToGreet}!`);
