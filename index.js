@@ -6,7 +6,7 @@ try {
   const nameToGreet = core.getInput('who-to-greet');
   const rName = github.context.repo.repo;
   const bName = github.context.ref;
-  const pulls = github.pulls.list({
+  const pulls = github.context.repo.pulls.list({
     owner: github.context.owner,
     repo: github.context.repo.owner
   });
